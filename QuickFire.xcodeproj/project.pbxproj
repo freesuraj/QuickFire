@@ -10,6 +10,12 @@
 		4F0185A22240A3810087FDB9 /* QuickFire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0185982240A3810087FDB9 /* QuickFire.framework */; };
 		4F0185A72240A3810087FDB9 /* QuickFireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185A62240A3810087FDB9 /* QuickFireTests.swift */; };
 		4F0185A92240A3810087FDB9 /* QuickFire.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F01859B2240A3810087FDB9 /* QuickFire.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F0185B32240AAC40087FDB9 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185B22240AAC40087FDB9 /* NetworkConfig.swift */; };
+		4F0185B52240AADD0087FDB9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185B42240AADD0087FDB9 /* Request.swift */; };
+		4F0185B72240AAEA0087FDB9 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185B62240AAEA0087FDB9 /* Response.swift */; };
+		4F0185B92240AC170087FDB9 /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185B82240AC170087FDB9 /* Future.swift */; };
+		4F0185BB2240AEE00087FDB9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185BA2240AEE00087FDB9 /* NetworkManager.swift */; };
+		4F0185BD2240AF040087FDB9 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185BC2240AF040087FDB9 /* MultipartRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		4F0185A12240A3810087FDB9 /* QuickFireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickFireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F0185A62240A3810087FDB9 /* QuickFireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFireTests.swift; sourceTree = "<group>"; };
 		4F0185A82240A3810087FDB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F0185B22240AAC40087FDB9 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		4F0185B42240AADD0087FDB9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		4F0185B62240AAEA0087FDB9 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		4F0185B82240AC170087FDB9 /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
+		4F0185BA2240AEE00087FDB9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4F0185BC2240AF040087FDB9 /* MultipartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,12 @@
 			children = (
 				4F01859B2240A3810087FDB9 /* QuickFire.h */,
 				4F01859C2240A3810087FDB9 /* Info.plist */,
+				4F0185B22240AAC40087FDB9 /* NetworkConfig.swift */,
+				4F0185B42240AADD0087FDB9 /* Request.swift */,
+				4F0185BA2240AEE00087FDB9 /* NetworkManager.swift */,
+				4F0185BC2240AF040087FDB9 /* MultipartRequest.swift */,
+				4F0185B62240AAEA0087FDB9 /* Response.swift */,
+				4F0185B82240AC170087FDB9 /* Future.swift */,
 			);
 			path = QuickFire;
 			sourceTree = "<group>";
@@ -148,6 +166,7 @@
 				TargetAttributes = {
 					4F0185972240A3810087FDB9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					4F0185A02240A3810087FDB9 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F0185B32240AAC40087FDB9 /* NetworkConfig.swift in Sources */,
+				4F0185B72240AAEA0087FDB9 /* Response.swift in Sources */,
+				4F0185BD2240AF040087FDB9 /* MultipartRequest.swift in Sources */,
+				4F0185BB2240AEE00087FDB9 /* NetworkManager.swift in Sources */,
+				4F0185B92240AC170087FDB9 /* Future.swift in Sources */,
+				4F0185B52240AADD0087FDB9 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +366,7 @@
 		4F0185AD2240A3810087FDB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +384,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kakhara.QuickFire;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +393,7 @@
 		4F0185AE2240A3810087FDB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +419,7 @@
 		4F0185B02240A3810087FDB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76AG8272S9;
 				INFOPLIST_FILE = QuickFireTests/Info.plist;
@@ -409,6 +438,7 @@
 		4F0185B12240A3810087FDB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76AG8272S9;
 				INFOPLIST_FILE = QuickFireTests/Info.plist;
