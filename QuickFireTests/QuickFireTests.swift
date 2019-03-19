@@ -9,26 +9,52 @@
 import XCTest
 @testable import QuickFire
 
+extension Request {
+	public var headers: [String: String] { return ["referer": "example.com"] }
+}
+
+public struct ProductDetail: Response {
+	
+	var name: String
+	
+	public init?(json: Any) {
+		guard let dict = json as? [String: Any], let title = dict["title"] as? String else { return nil }
+		name = title
+	}
+}
+
+public struct ProductDetailRequest: Request {
+	
+	public var path: String {
+		return "GET /api/v1/products/\(productId)/"
+	}
+	
+	let productId: String
+	public let responseType: Response.Type = ProductDetail.self
+	
+	public init(productId: String) {
+		self.productId = productId
+	}
+}
+
 class QuickFireTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+		NetworkConfig.shared.baseUrl = "https://www.example.com"
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+		func onDetail(_ response: ProductDetail) {
+			print("product is \(response.name)")
+		}
+		
+		func onError(_ error: Error) {
+			print("error: \(error.localizedDescription)")
+		}
+		ProductDetailRequest(productId: "1111").execute().then(onDetail).catch(onError)
     }
 
 }

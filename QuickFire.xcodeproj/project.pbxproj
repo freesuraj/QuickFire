@@ -16,6 +16,7 @@
 		4F0185B92240AC170087FDB9 /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185B82240AC170087FDB9 /* Future.swift */; };
 		4F0185BB2240AEE00087FDB9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185BA2240AEE00087FDB9 /* NetworkManager.swift */; };
 		4F0185BD2240AF040087FDB9 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185BC2240AF040087FDB9 /* MultipartRequest.swift */; };
+		4F0185C12241B2B00087FDB9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185C02241B2B00087FDB9 /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		4F0185B82240AC170087FDB9 /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
 		4F0185BA2240AEE00087FDB9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4F0185BC2240AF040087FDB9 /* MultipartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartRequest.swift; sourceTree = "<group>"; };
+		4F0185C02241B2B00087FDB9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				4F01859C2240A3810087FDB9 /* Info.plist */,
 				4F0185B22240AAC40087FDB9 /* NetworkConfig.swift */,
 				4F0185B42240AADD0087FDB9 /* Request.swift */,
+				4F0185C02241B2B00087FDB9 /* NetworkError.swift */,
 				4F0185BA2240AEE00087FDB9 /* NetworkManager.swift */,
 				4F0185BC2240AF040087FDB9 /* MultipartRequest.swift */,
 				4F0185B62240AAEA0087FDB9 /* Response.swift */,
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F0185B32240AAC40087FDB9 /* NetworkConfig.swift in Sources */,
+				4F0185C12241B2B00087FDB9 /* NetworkError.swift in Sources */,
 				4F0185B72240AAEA0087FDB9 /* Response.swift in Sources */,
 				4F0185BD2240AF040087FDB9 /* MultipartRequest.swift in Sources */,
 				4F0185BB2240AEE00087FDB9 /* NetworkManager.swift in Sources */,

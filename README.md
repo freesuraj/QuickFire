@@ -17,21 +17,14 @@ We have a `User Login` api at this end point:
 
 We want to receive a `User` Object when I execute the api with parameters `user_name` and `password`.
 
-```
-struct User {
-	var fullname: String
-	var badge: String
-	var balance: Double
-}
-```
 
 **QuickFire** is a wrapper that takes away all the steps that happens in between the request and response and let's you focus on defining request and response ONLY.
 
-```
+```swift
 struct UserLoginRequest: Request {
-	var path: String = "POST /user/login"
+    var path: String = "POST /user/login"
     var params: [Key: Value] {
-    	return ["user_name": userName, "password": password]
+        return ["user_name": userName, "password": password]
     }
     
     private var userName: String
@@ -45,10 +38,62 @@ struct UserLoginRequest: Request {
 
 
 struct User: Response {
-	var fullName: String
+    var fullName: String
     var badge: String
     var balance: Double
 }
 
 UserLoginRequest(userName: "xxx", password: "xxxx").execute().then(User).catch(Error)
+
+```
+
+Another example:
+
+```swift
+import QuickFire
+
+extension Request {
+    public var headers: [String: String] { return ["referer": "example.com"] } // Common headers for all requests
+}
+
+public struct ProductDetail: Response {
+	
+    var name: String
+
+    public init?(json: Any) {
+        guard let dict = json as? [String: Any], let title = dict["title"] as? String else { return nil }
+        name = title
+    }
+}
+
+public struct ProductDetailRequest: Request {
+	
+    public var path: String {
+        return "GET /api/v1/products/\(productId)/"
+    }
+
+    let productId: String
+    public let responseType: Response.Type = ProductDetail.self
+
+    public init(productId: String) {
+        self.productId = productId
+    }
+}
+
+class Example {
+
+    func testExample() {
+        func onDetail(_ response: ProductDetail) {
+            print("product is \(response.name)")
+        }
+
+        func onError(_ error: Error) {
+            print("error: \(error.localizedDescription)")
+        }
+
+    NetworkConfig.shared.baseUrl = "https://www.example.com"
+    ProductDetailRequest(productId: "1111").execute().then(onDetail).catch(onError)
+    }
+
+}
 ```

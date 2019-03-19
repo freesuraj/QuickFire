@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol NetworkResponse {
+public protocol Response {
 	init?(json: Any)
 }

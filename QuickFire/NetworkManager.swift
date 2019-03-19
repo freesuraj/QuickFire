@@ -2,16 +2,12 @@ import Foundation
 
 /// Any network manager that conforms to this protocol can define how a network request can be handled
 public protocol NetworkProtocol {
-	func request(_ queue: DispatchQueue?, request: NetworkRequest, success: @escaping ((Any) -> Void), failure: @escaping ((NetworkError) -> Void))
+	func request(_ queue: DispatchQueue?, request: Request, success: @escaping ((Any) -> Void), failure: @escaping ((NetworkError) -> Void))
 }
 
-public class NetworkManager {
-	public static let shared = NetworkManager()
-}
-
-extension NetworkManager: NetworkProtocol {
+public class NetworkManager: NetworkProtocol {
 	
-	public func request(_ queue: DispatchQueue? = nil, request: NetworkRequest, success: @escaping ((Any) -> Void), failure: @escaping ((NetworkError) -> Void)) {
+	public func request(_ queue: DispatchQueue? = nil, request: Request, success: @escaping ((Any) -> Void), failure: @escaping ((NetworkError) -> Void)) {
 		guard let url = request.completeUrl() else {
 			failure(.invalidError)
 			return
@@ -95,7 +91,7 @@ extension NetworkManager: NetworkProtocol {
 	}
 }
 
-extension NetworkRequest {
+extension Request {
 	
 	func completeUrl() -> URL? {
 		guard var fullPath = fullPath else { return nil }
